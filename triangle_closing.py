@@ -2,11 +2,11 @@ import csv, sys, webbrowser
 import collections as coll
 
 
-def find_listings(records_list, user_id):
+def find_listings(records_list, user_id1):
     listings1 = set()
     # Find listing of user
     for rows in records_list:
-        if rows[3] == user_id:
+        if rows[3] == user_id1:
             listings1.add(rows[0])
 
     return listings1
@@ -33,12 +33,12 @@ def count_triangles(records_list, fellow_travellers):
     return coll.Counter(triangles)
 
 
-def recommend_listings(counts, user_listings, num=10):
+def recommend_listings(counts1, user_listings, num=10):
     for listing in user_listings:
-        if listing in counts:
-            counts.pop(listing)
+        if listing in counts1:
+            counts1.pop(listing)
 
-    return counts.most_common(num)
+    return counts1.most_common(num)
 
 
 if __name__ == '__main__':
